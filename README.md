@@ -1,2 +1,2 @@
 # microsservico-de-vendas
-Projeto realizado com microsservico, docker, liquibase, postgresql e API full REST.
+Projeto realizado com microsservicos, docker, liquibase, postgresql e API full REST.

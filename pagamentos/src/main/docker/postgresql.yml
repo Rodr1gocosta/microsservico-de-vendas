@@ -1,0 +1,12 @@
+# Use postgres/example user/password credentials
+version: '3.8'
+services:
+  pagamentos:
+    image: postgres:12.3
+    volumes:
+      - ~/volumes/postgres/pagamentos/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=pagamentos
+      - POSTGRES_PASSWORD=root
+    ports:
+      - 127.0.0.1:5434:5432

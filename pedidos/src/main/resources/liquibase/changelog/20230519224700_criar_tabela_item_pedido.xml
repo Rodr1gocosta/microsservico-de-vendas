@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+    sequence the entity Item Pedido.
+    -->
+    <changeSet  author="20230519224700-2"  id="rodrigo.costa">
+        <createSequence  dataType="int" incrementBy="1" startValue="50" sequenceName="item_pedido_sequence"/>
+    </changeSet>
+
+    <!--
+    create the entity Item Pedido.
+    -->
+    <changeSet id="20230519224700-1" author="rodrigo.costa">
+        <createTable tableName="item_pedido">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="descricao" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="quantidade" type="int">
+                <constraints nullable="false" />
+            </column>
+            <column name="pedido_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="item_pedido" baseColumnNames="pedido_id" constraintName="fk_item_pedido_pedido_id" referencedTableName="pedidos"
+                                 referencedColumnNames="id" />
+    </changeSet>
+
+</databaseChangeLog>

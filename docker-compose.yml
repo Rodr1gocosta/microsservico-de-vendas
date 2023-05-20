@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgresql-pagamentos:
+    extends:
+      file: pagamentos/src/main/docker/postgresql.yml
+      service: pagamentos
+    container_name: pagamentos
+  postgresql-pedidos:
+    extends:
+      file: pedidos/src/main/docker/postgresql.yml
+      service: pedidos
+    container_name: pedidos
+
+volumes:
+  db-data:
+    external: false

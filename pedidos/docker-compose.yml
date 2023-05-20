@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  postgresql:
+    extends:
+      file: src/main/docker/postgresql.yml
+      service: pedidos
+    container_name: pedidos
+volumes:
+  db-data:
+    external: false
